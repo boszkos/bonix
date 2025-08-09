@@ -1,0 +1,34 @@
+{
+  description = "A simple NixOS flake";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixcord.url = "github:kaylorben/nixcord";
+  };
+
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+    nixosConfigurations = {
+      boszko = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            home-manager.users.boszko = import ./home.nix;
+            home-manager.sharedModules = [
+              inputs.nixcord.homeModules.nixcord
+            ];
+          }
+        ];
+      };
+    };
+  };
+}
