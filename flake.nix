@@ -29,6 +29,23 @@
           }
         ];
       };
+            boszkotop = nixpkgs.lib.nixosSystem {
+              system = "x86_64-linux";
+              modules = [
+                ./plaptop/configuration.nix
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager.extraSpecialArgs = {inherit inputs;};
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+
+                  home-manager.users.boszko = import ./home.nix;
+                  home-manager.sharedModules = [
+                    inputs.nixcord.homeModules.nixcord
+            ];
+          }
+        ];
+      };
     };
   };
 }
