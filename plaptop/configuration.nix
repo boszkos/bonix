@@ -9,6 +9,7 @@
     [
       ../hardware-configuration.nix
       # ./modulerinos/nvidia.nix
+      ../modulerinos/auto-cpufreq.nix
     ];
 
 # FLAKES
