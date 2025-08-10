@@ -11,5 +11,9 @@
   ];
    home.packages = with pkgs; [
    fastfetch
+   vlc
+   obsidian
+   btop
+
    ];
 }
