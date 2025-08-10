@@ -5,6 +5,7 @@
     open = true;
     modesetting.enable = true;
     nvidiaSettings = true;
+    powerManagement.enable = false;
     #package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
   environment.sessionVariables = {
