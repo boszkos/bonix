@@ -15,5 +15,6 @@
    obsidian
    btop
    calibre
+   gimp
    ];
 }
