@@ -8,8 +8,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      # ./modulerinos/nvidia.nix
-      # ../modulerinos/auto-cpufreq.nix  por alguma razão (parece que é problema do KDE) o autocpufreq n funfa. oh well..
+      ../modulerinos/nvidia.nix
     ];
 
 # FLAKES

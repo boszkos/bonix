@@ -14,6 +14,6 @@
    vlc
    obsidian
    btop
-
+   calibre
    ];
 }
