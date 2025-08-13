@@ -16,5 +16,6 @@
    btop
    calibre
    gimp
+   kitty
    ];
 }
