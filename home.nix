@@ -9,6 +9,7 @@
     ./homerinos/nixcord.nix
     ./homerinos/githuberinos.nix
     ./homerinos/kitty.nix
+    ./homerinos/fish.nix
   ];
    home.packages = with pkgs; [
    fastfetch
