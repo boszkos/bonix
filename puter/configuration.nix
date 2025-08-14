@@ -106,7 +106,8 @@
   programs = {
     firefox.enable = true;
     steam.enable = true;
-  };
+	fish.enable = true;
+	};
 
   programs.neovim = {
     enable = true;
