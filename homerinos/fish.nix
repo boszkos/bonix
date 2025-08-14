@@ -3,7 +3,6 @@ home.packages = with pkgs; [
 	fishPlugins.tide
 ];
 
-home-manager.users.boszko = {
   programs.fish.enable = true;
   shellAliases = {
       neofetch = "fastfetch";
@@ -14,5 +13,4 @@ home-manager.users.boszko = {
         src = pkgs.fishPlugins.tide.src;
 	}
   ];
-};
 }
