@@ -5,7 +5,7 @@ home.packages = with pkgs; [
   programs.fish.enable = true;
 
 
-  plugins = [
+  fish.plugins = [
   	{
         name = "tide";
         src = pkgs.fishPlugins.tide.src;
