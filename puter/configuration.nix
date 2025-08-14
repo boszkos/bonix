@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../modulerinos/nvidia.nix
       ../homerinos/fish.nix
+      ../modulerinos/fish.nix
     ];
 
 # FLAKES
@@ -107,7 +108,7 @@
     firefox.enable = true;
     steam.enable = true;
 	fish.enable = true;
-	};
+  };
 
   programs.neovim = {
     enable = true;

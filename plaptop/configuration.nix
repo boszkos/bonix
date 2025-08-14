@@ -9,6 +9,7 @@
     [
       ./hardware-configuration.nix
       ../homerinos/fish.nix
+      ../modulerinos/fish.nix
       # ./modulerinos/nvidia.nix
       # ../modulerinos/auto-cpufreq.nix  por alguma razão (parece que é problema do KDE) o autocpufreq n funfa. oh well..
     ];
