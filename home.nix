@@ -8,6 +8,7 @@
   imports = [
     ./homerinos/nixcord.nix
     ./homerinos/githuberinos.nix
+    ./homerinos/kitty.nix
   ];
    home.packages = with pkgs; [
    fastfetch
@@ -16,6 +17,5 @@
    btop
    calibre
    gimp
-   kitty
    ];
 }
