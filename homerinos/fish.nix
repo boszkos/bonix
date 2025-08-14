@@ -1,6 +1,6 @@
 {pkgs, ...} : {
-home.manager = with pkgs; [
-fishplugins.tide
+home.packages = with pkgs; [
+	fishPlugins.tide
 ];
 
 home-manager.users.boszko = {
