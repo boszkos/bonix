@@ -18,5 +18,7 @@
    btop
    calibre
    gimp
+   tidal-hifi
+   cbonsai
    ];
 }
