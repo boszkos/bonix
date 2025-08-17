@@ -20,5 +20,6 @@
    gimp
    tidal-hifi
    cbonsai
+   libreoffice-qt
    ];
 }
