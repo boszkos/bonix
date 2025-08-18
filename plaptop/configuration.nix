@@ -52,6 +52,8 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
+
+
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
@@ -108,6 +110,12 @@
     firefox.enable = true;
     steam.enable = true;
     fish.enable = true;
+    hyprland = {
+    	enable = true;
+	package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+	portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+	};
+    	
   };
 
   programs.neovim = {
