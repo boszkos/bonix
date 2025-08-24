@@ -21,5 +21,6 @@
    tidal-hifi
    cbonsai
    libreoffice-qt
+   shotcut
    ];
 }
