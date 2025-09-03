@@ -22,5 +22,8 @@
    cbonsai
    libreoffice-qt
    shotcut
-   ];
+   pomodoro
+   neo
+
+];
 }
