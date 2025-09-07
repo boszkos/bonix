@@ -22,5 +22,9 @@
    cbonsai
    libreoffice-qt
    shotcut
-   ];
+   pomodoro
+   neo
+   ace-of-penguins
+
+];
 }
