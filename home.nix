@@ -25,7 +25,6 @@
    pomodoro
    neo
    ace-of-penguins
-   rofi-wayland
    waybar
 ];
 
