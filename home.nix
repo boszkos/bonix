@@ -12,11 +12,11 @@
     ./homerinos/fish.nix
   ];
    home.packages = with pkgs; [
+   calibre
    fastfetch
    vlc
    obsidian
    btop
-   calibre
    gimp
    tidal-hifi
    cbonsai
