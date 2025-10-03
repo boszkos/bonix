@@ -69,6 +69,10 @@
 zramSwap.enable = true;
 
 
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
+
   # Configure console keymap
   console.keyMap = "br-abnt2";
 
@@ -130,11 +134,6 @@ zramSwap.enable = true;
   ];
 
 
-#Virtual machines
-{
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.dragAndDrop = true;
-}
 
 
 
