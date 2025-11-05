@@ -26,6 +26,8 @@
    neo
    ace-of-penguins
    waybar
+   rar
+   gpu-screen-recorder-gtk
 ];
 
 
