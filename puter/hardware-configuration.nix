@@ -26,7 +26,7 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/mnt" =
+  fileSystems."/mnt/HDlinux" =
     { device = "/dev/disk/by-uuid/289299c0-f92e-49c7-9ae3-2fdd8f73ed03";
       fsType = "ext4";
     };
