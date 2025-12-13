@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../modulerinos/nvidia.nix
       ../modulerinos/fish.nix
+      ../modulerinos/cosmic.nix
       ../modulerinos/hyprland.nix
     ];
 
