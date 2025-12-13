@@ -25,7 +25,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, auto-cpufreq, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, auto-cpufreq, zen-browser, ... }@inputs: {
     nixosConfigurations = {
       boszko = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
