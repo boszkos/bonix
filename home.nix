@@ -10,7 +10,12 @@
     ./homerinos/githuberinos.nix
     ./homerinos/kitty.nix
     ./homerinos/fish.nix
+    inputs.zen-browser.homeModules.beta
   ];
+
+  programs.zen-browser.enable = true;
+
+
    home.packages = with pkgs; [
    calibre
    fastfetch
@@ -29,6 +34,8 @@
    rar
    gpu-screen-recorder-gtk
 ];
+
+
 
 
 }
