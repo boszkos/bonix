@@ -21,6 +21,8 @@
     inputs = {
       nixpkgs.follows = "nixpkgs";
       home-manager.follows = "home-manager";
+    };
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, auto-cpufreq, ... }@inputs: {
