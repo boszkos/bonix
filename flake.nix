@@ -40,6 +40,7 @@
             home-manager.users.boszko = import ./home.nix;
             home-manager.sharedModules = [
               inputs.nixcord.homeModules.nixcord
+	      zen-browser.homeModules.beta
             ];
           }
         ];
@@ -58,6 +59,7 @@
                   home-manager.users.boszko = import ./home.nix;
                   home-manager.sharedModules = [
                     inputs.nixcord.homeModules.nixcord
+		    zen-browser.homeModules.beta
             ];
           }
         ];

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, lib, config, pkgs, ... }:
 
 {
   home.username = "boszko";
@@ -10,10 +10,8 @@
     ./homerinos/githuberinos.nix
     ./homerinos/kitty.nix
     ./homerinos/fish.nix
-  ];
-
-  programs.zen-browser.enable = true;
-
+    ./homerinos/helix.nix
+    ];
 
    home.packages = with pkgs; [
    calibre
@@ -33,8 +31,5 @@
    rar
    gpu-screen-recorder-gtk
 ];
-
-
-
-
+  programs.zen-browser.enable = true;
 }
