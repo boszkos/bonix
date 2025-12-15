@@ -1,3 +1,6 @@
+{ pkgs, lib, config, ... }:
+
+{
 programs.helix = {
   enable = true;
   settings = {
@@ -13,3 +16,5 @@ programs.helix = {
     formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
   }];
 };
+}
+
