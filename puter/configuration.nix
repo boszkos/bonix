@@ -1,33 +1,21 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
-
 {
   imports =
     [
       ./hardware-configuration.nix
       ../modulerinos/nvidia.nix
       ../modulerinos/fish.nix
-      ../modulerinos/cosmic.nix
       ../modulerinos/hyprland.nix
     ];
-
 # FLAKES
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # Use latest kernel.
+# Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  networking.hostName = "boszko"; # hostname.
+  networking.hostName = "flakey-burrow"; # hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -58,7 +46,7 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager.gdm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
@@ -70,19 +58,17 @@
 # Enable SWAP
 zramSwap.enable = true;
 
-
-# Habiltiar Virtualização
+# Enable Virtual Machines
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 
-
-  # Configure console keymap
+# Configure console keymap
   console.keyMap = "br-abnt2";
 
-  # Enable CUPS to print documents.
+# Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
+# Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -103,7 +89,7 @@ zramSwap.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   
 
-#
+# user
   users.users.boszko = {
     isNormalUser = true;
     description = "boszko";
@@ -114,8 +100,7 @@ zramSwap.enable = true;
   };
 
   #PROGRAMAS
-
-  programs = {
+ programs = {
     firefox.enable = true;
     steam.enable = true;
     fish.enable = true;
@@ -128,10 +113,6 @@ zramSwap.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-
 
   environment.systemPackages = with pkgs; [
   # Terminal
@@ -159,7 +140,5 @@ zramSwap.enable = true;
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
   system.stateVersion = "25.05";
-
 }
