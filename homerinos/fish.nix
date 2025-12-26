@@ -12,6 +12,7 @@
     ];
     shellAliases = {
       neofetch = "fastfetch";
+      update = "sudo nix flake update && sudo nixos-rebuild switch --flake /home/boszko/bonix#boszko";
     };
   };
 }

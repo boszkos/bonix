@@ -6,7 +6,9 @@
       ../modulerinos/nvidia.nix
       ../modulerinos/fish.nix
       ../modulerinos/hyprland.nix
-    ];
+      ../modulerinos/alvr.nix
+      ../modulerinos/sway.nix
+ ];
 # FLAKES
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Bootloader.
@@ -96,6 +98,8 @@ zramSwap.enable = true;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
+      flatpak
+      gnome-software
     ];
   };
 
@@ -120,6 +124,20 @@ zramSwap.enable = true;
   # Torrent
   deluge
   ];
+
+# VR
+boot.kernelPatches = [
+  {
+    name = "amdgpu-ignore-ctx-privileges";
+    patch = pkgs.fetchpatch {
+      name = "cap_sys_nice_begone.patch";
+      url = "https://github.com/Frogging-Family/community-patches/raw/master/linux61-tkg/cap_sys_nice_begone.mypatch";
+      hash = "sha256-Y3a0+x2xvHsfLax/uwycdJf3xLxvVfkfDVqjkxNaYEo=";
+    };
+  }
+];
+
+
 
 # --------------------------------------------------------------
   # Some programs need SUID wrappers, can be configured further or are
