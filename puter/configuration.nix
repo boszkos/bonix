@@ -108,6 +108,8 @@ zramSwap.enable = true;
     firefox.enable = true;
     steam.enable = true;
     fish.enable = true;
+    #gamemode baldurs gate?
+    gamemode.enable = true;
   };
 #neovim
   programs.neovim = {
@@ -123,6 +125,9 @@ zramSwap.enable = true;
   kitty
   # Torrent
   deluge
+  # proton2
+  protonup-ng
+
   ];
 
 # VR
