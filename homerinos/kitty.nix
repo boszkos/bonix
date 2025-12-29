@@ -1,6 +1,7 @@
 {
   programs.kitty = {
     enable = true;
+    themeFile = "duckbones";
     settings = {
       cursor_trail = 3;
       cursor_trail_decay = "0.2 0.6";
