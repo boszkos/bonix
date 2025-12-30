@@ -1,20 +1,21 @@
 { config, pkgs, ... }:
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../modulerinos/nvidia.nix
-      ../modulerinos/fish.nix
-      ../modulerinos/hyprland.nix
-      ../modulerinos/alvr.nix
-      ../modulerinos/sway.nix
- ];
-# FLAKES
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  imports = [
+    ./hardware-configuration.nix
+    ../modulerinos/nvidia.nix
+    ../modulerinos/fish.nix
+    ../modulerinos/hyprland.nix
+    ../modulerinos/sway.nix
+  ];
+  # FLAKES
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-# Use latest kernel.
+  # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "flakey-burrow"; # hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -57,20 +58,20 @@
     variant = "";
   };
 
-# Enable SWAP
-zramSwap.enable = true;
+  # Enable SWAP
+  zramSwap.enable = true;
 
-# Enable Virtual Machines
+  # Enable Virtual Machines
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 
-# Configure console keymap
+  # Configure console keymap
   console.keyMap = "br-abnt2";
 
-# Enable CUPS to print documents.
+  # Enable CUPS to print documents.
   services.printing.enable = true;
 
-# Enable sound with pipewire.
+  # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -89,13 +90,15 @@ zramSwap.enable = true;
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  
 
-# user
+  # user
   users.users.boszko = {
     isNormalUser = true;
     description = "boszko";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
       flatpak
@@ -104,14 +107,14 @@ zramSwap.enable = true;
   };
 
   #PROGRAMAS
- programs = {
+  programs = {
     firefox.enable = true;
     steam.enable = true;
     fish.enable = true;
     #gamemode baldurs gate?
     gamemode.enable = true;
   };
-#neovim
+  #neovim
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -121,30 +124,28 @@ zramSwap.enable = true;
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-  # Terminal
-  kitty
-  # Torrent
-  deluge
-  # proton2
-  protonup-ng
+    # Terminal
+    kitty
+    # Torrent
+    deluge
+    # proton2
+    protonup-ng
 
   ];
 
-# VR
-boot.kernelPatches = [
-  {
-    name = "amdgpu-ignore-ctx-privileges";
-    patch = pkgs.fetchpatch {
-      name = "cap_sys_nice_begone.patch";
-      url = "https://github.com/Frogging-Family/community-patches/raw/master/linux61-tkg/cap_sys_nice_begone.mypatch";
-      hash = "sha256-Y3a0+x2xvHsfLax/uwycdJf3xLxvVfkfDVqjkxNaYEo=";
-    };
-  }
-];
+  # VR
+  boot.kernelPatches = [
+    {
+      name = "amdgpu-ignore-ctx-privileges";
+      patch = pkgs.fetchpatch {
+        name = "cap_sys_nice_begone.patch";
+        url = "https://github.com/Frogging-Family/community-patches/raw/master/linux61-tkg/cap_sys_nice_begone.mypatch";
+        hash = "sha256-Y3a0+x2xvHsfLax/uwycdJf3xLxvVfkfDVqjkxNaYEo=";
+      };
+    }
+  ];
 
-
-
-# --------------------------------------------------------------
+  # --------------------------------------------------------------
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
