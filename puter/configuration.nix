@@ -5,7 +5,6 @@
     ../modulerinos/nvidia.nix
     ../modulerinos/fish.nix
     ../modulerinos/hyprland.nix
-    ../modulerinos/sway.nix
   ];
   # FLAKES
   nix.settings.experimental-features = [

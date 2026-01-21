@@ -17,6 +17,7 @@
     ./homerinos/kitty.nix
     ./homerinos/fish.nix
     ./homerinos/helix.nix
+    ./homerinos/wofi.nix
   ];
 
   home.packages = with pkgs; [
