@@ -1,4 +1,10 @@
-{ inputs, lib, config, pkgs, ... }:
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   home.username = "boszko";
@@ -11,25 +17,26 @@
     ./homerinos/kitty.nix
     ./homerinos/fish.nix
     ./homerinos/helix.nix
-    ];
+  ];
 
-   home.packages = with pkgs; [
-   calibre
-   fastfetch
-   vlc
-   obsidian
-   btop
-   gimp
-   tidal-hifi
-   cbonsai
-   libreoffice-qt
-   shotcut
-   pomodoro
-   neo
-   ace-of-penguins
-   waybar
-   rar
-   gpu-screen-recorder-gtk
-];
+  home.packages = with pkgs; [
+    calibre
+    fastfetch
+    vlc
+    obsidian
+    btop
+    gimp
+    tidal-hifi
+    cbonsai
+    libreoffice-qt
+    shotcut
+    pomodoro
+    neo
+    ace-of-penguins
+    waybar
+    rar
+    gpu-screen-recorder-gtk
+    prismlauncher
+  ];
   programs.zen-browser.enable = true;
 }
