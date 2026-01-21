@@ -3,28 +3,26 @@
   lib,
   config,
   ...
-}:
-
-{
+}: {
   programs.helix = {
     enable = true;
     settings = {
       theme = "ao";
       editor = {
+        line-number = "relative";
         cursor-shape = {
           insert = "bar";
           normal = "block";
           select = "underline";
         };
-        line-number = "relative";
       };
-      languages.language = [
-        {
-          name = "nix";
-          auto-format = true;
-          formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
-        }
-      ];
     };
+    languages.language = [
+      {
+        name = "nix";
+        auto-format = true;
+        formatter.command = "${pkgs.alejandra}/bin/alejandra";
+      }
+    ];
   };
 }
