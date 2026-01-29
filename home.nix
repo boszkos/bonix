@@ -4,9 +4,7 @@
   config,
   pkgs,
   ...
-}:
-
-{
+}: {
   home.username = "boszko";
   home.homeDirectory = "/home/boszko";
   home.stateVersion = "25.11";
@@ -18,6 +16,8 @@
     ./homerinos/fish.nix
     ./homerinos/helix.nix
     ./homerinos/wofi.nix
+    ./homerinos/waybar.nix
+    ./homerinos/hyprland.nix
   ];
 
   home.packages = with pkgs; [
@@ -33,11 +33,11 @@
     shotcut
     pomodoro
     neo
-    ace-of-penguins
-    waybar
+    ace-of-penguins #solitaire
     rar
     gpu-screen-recorder-gtk
-    prismlauncher
+    prismlauncher #minecraft
+    grimblast
   ];
   programs.zen-browser.enable = true;
 }
