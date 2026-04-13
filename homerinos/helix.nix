@@ -10,6 +10,7 @@
       theme = "ao";
       editor = {
         line-number = "relative";
+        soft-wrap.enable = true;
         cursor-shape = {
           insert = "bar";
           normal = "block";

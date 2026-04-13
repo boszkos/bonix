@@ -38,6 +38,7 @@
     gpu-screen-recorder-gtk
     prismlauncher #minecraft
     grimblast
+    element-desktop
   ];
   programs.zen-browser.enable = true;
 }

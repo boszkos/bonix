@@ -129,8 +129,9 @@
     deluge
     # proton2
     protonup-ng
-
-  ];
+    wireguard-tools
+    protonvpn-gui
+  ;
 
   # VR
   boot.kernelPatches = [
@@ -153,6 +154,7 @@
   #   enableSSHSupport = true;
   # };
 
+  networking.firewall.checkReversePath = false;
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
