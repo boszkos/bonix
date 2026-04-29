@@ -39,6 +39,7 @@
     prismlauncher #minecraft
     grimblast
     element-desktop
+    krita
   ];
   programs.zen-browser.enable = true;
 }

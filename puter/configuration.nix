@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ../modulerinos/nvidia.nix
@@ -131,7 +134,7 @@
     protonup-ng
     wireguard-tools
     protonvpn-gui
-  ;
+  ];
 
   # VR
   boot.kernelPatches = [
@@ -154,7 +157,7 @@
   #   enableSSHSupport = true;
   # };
 
-  networking.firewall.checkReversePath = false;
+  networking.firewall.checkReversePath = "loose";
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
