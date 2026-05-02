@@ -134,6 +134,8 @@
     protonup-ng
     wireguard-tools
     protonvpn-gui
+    # Croc is a command line tool written in Go that allows any two computers to simply and securely transfer files and folders.
+    croc
   ];
 
   # VR
