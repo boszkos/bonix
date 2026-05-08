@@ -18,6 +18,12 @@
     #hyprland
     hyprland.url = "github:hyprwm/Hyprland";
 
+    #stylix
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #zen-browser
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -28,57 +34,56 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      auto-cpufreq,
-      zen-browser,
-      hyprland,
-      ...
-    }@inputs:
-    {
-      nixosConfigurations = {
-        boszko = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            hyprland.nixosModules.default
-            ./puter/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    auto-cpufreq,
+    zen-browser,
+    hyprland,
+    stylix,
+    ...
+  } @ inputs: {
+    nixosConfigurations = {
+      boszko = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          hyprland.nixosModules.default
+          ./puter/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
 
-              home-manager.users.boszko = import ./home.nix;
-              home-manager.sharedModules = [
-                inputs.nixcord.homeModules.nixcord
-                zen-browser.homeModules.beta
-              ];
-            }
-          ];
-        };
-        boszkotop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./plaptop/configuration.nix
-            auto-cpufreq.nixosModules.default
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-              home-manager.users.boszko = import ./home.nix;
-              home-manager.sharedModules = [
-                inputs.nixcord.homeModules.nixcord
-                zen-browser.homeModules.beta
-              ];
-            }
-          ];
-        };
+            home-manager.users.boszko = import ./home.nix;
+            home-manager.sharedModules = [
+              inputs.nixcord.homeModules.nixcord
+              zen-browser.homeModules.beta
+            ];
+          }
+        ];
+      };
+      boszkotop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./plaptop/configuration.nix
+          auto-cpufreq.nixosModules.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.boszko = import ./home.nix;
+            home-manager.sharedModules = [
+              stylix.homeModules.stylix
+              inputs.nixcord.homeModules.nixcord
+              zen-browser.homeModules.beta
+            ];
+          }
+        ];
       };
     };
+  };
 }

@@ -119,7 +119,7 @@
   #neovim
   programs.neovim = {
     enable = true;
-    defaultEditor = true;
+    defaultEditor = false;
   };
 
   # Allow unfree packages
@@ -134,7 +134,6 @@
     protonup-ng
     wireguard-tools
     protonvpn-gui
-    # Croc is a command line tool written in Go that allows any two computers to simply and securely transfer files and folders.
     croc
   ];
 

@@ -18,6 +18,7 @@
     ./homerinos/wofi.nix
     ./homerinos/waybar.nix
     ./homerinos/hyprland.nix
+    ./homerinos/stylix.nix
   ];
 
   home.packages = with pkgs; [
@@ -41,5 +42,6 @@
     element-desktop
     krita
   ];
+  #enable zen
   programs.zen-browser.enable = true;
 }

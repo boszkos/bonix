@@ -25,5 +25,20 @@
         formatter.command = "${pkgs.alejandra}/bin/alejandra";
       }
     ];
+
+    #magia do márcio (idk what it does)
+    keys.normal = {
+      space.e = let
+        unique-file = "/tmp/unique-file";
+      in [
+        ":sh rm -f ${unique-file}"
+        ":insert-output ${pkgs.yazi/bin/yazi} \"%{buffer_name}\" --chooser-file=${unique-file}"
+        ":sh printf \"\\x1b[?1049h\\x1b[?2004h\" > /dev/tty"
+        ":open %sh{cat ${unique-file}}"
+        ":redraw"
+        ":set-option mouse false"
+        ":set-option mouse true"
+      ];
+    };
   };
 }

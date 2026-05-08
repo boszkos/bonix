@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     fishPlugins.tide
   ];
@@ -14,7 +13,7 @@
     shellAliases = {
       neofetch = "fastfetch";
       update = "sudo nix flake update /home/boszko/bonix && sudo nixos-rebuild switch --flake /home/boszko/bonix#boszko";
-      NOW!!! = "now"
+      "NOW!!!" = "now";
     };
   };
 }
