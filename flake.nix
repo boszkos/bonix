@@ -60,6 +60,7 @@
             home-manager.users.boszko = import ./home.nix;
             home-manager.sharedModules = [
               inputs.nixcord.homeModules.nixcord
+              stylix.homeModules.stylix
               zen-browser.homeModules.beta
             ];
           }
@@ -77,7 +78,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.boszko = import ./home.nix;
             home-manager.sharedModules = [
-              stylix.homeModules.stylix
               inputs.nixcord.homeModules.nixcord
               zen-browser.homeModules.beta
             ];

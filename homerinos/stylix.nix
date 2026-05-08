@@ -15,22 +15,22 @@ in {
       sansSerif = fonts.monospace;
     };
     #cursor
-    cursor = {
-      name = "breeze_cursors";
-      size = 24;
-    };
+    # cursor = {
+    #   name = "breeze_cursors";
+    #   size = 24;
+    # };
     #icons
-    icons = {
-      enable = true;
-      package = pkgs.breeze-icons;
-      dark = "Breeze-Dark";
-      light = "Breeze-Light";
-    };
+    # icons = {
+    #   enable = true;
+    # package = pkgs.breeze-icons;
+    # dark = "Breeze-Dark";
+    # light = "Breeze-Light";
+    # };
 
-    # 
+    #
     targets = {
       kde.decorationTheme = "kwin4_decoration_qml_plastik";
       gtk.extraCss = "* { border-radius: 0px; }";
     };
+  };
 }
-

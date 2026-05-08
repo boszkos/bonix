@@ -22,6 +22,7 @@
   ];
 
   home.packages = with pkgs; [
+    yazi #idk margic
     calibre
     fastfetch
     vlc
