@@ -23,6 +23,7 @@
       };
       # theme = "ao";
       editor = {
+        bufferline = "multiple";
         line-number = "relative";
         soft-wrap.enable = true;
         cursor-shape = {

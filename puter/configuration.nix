@@ -126,6 +126,8 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    # File Explorer
+    nautilus
     # Terminal
     kitty
     # Torrent
