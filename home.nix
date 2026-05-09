@@ -15,9 +15,6 @@
     ./homerinos/kitty.nix
     ./homerinos/fish.nix
     ./homerinos/helix.nix
-    ./homerinos/wofi.nix
-    ./homerinos/waybar.nix
-    ./homerinos/hyprland.nix
     # ./homerinos/stylix.nix
   ];
 

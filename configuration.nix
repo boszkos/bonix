@@ -4,10 +4,9 @@
   ...
 }: {
   imports = [
-    ./puter/hardware-configuration.nix
+    ./hardware-configuration.nix
     ./modulerinos/nvidia.nix
     ./modulerinos/fish.nix
-    ./modulerinos/hyprland.nix
   ];
   # FLAKES
   nix.settings.experimental-features = [

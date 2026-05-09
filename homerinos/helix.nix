@@ -7,7 +7,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      #magia do márcio (idk what it does)
+      #magia do márcio para abrir yazi no helix
       keys.normal = {
         space.e = let
           unique-file = "/tmp/unique-file";
