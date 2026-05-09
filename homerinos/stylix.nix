@@ -29,8 +29,10 @@ in {
 
     #
     targets = {
-      kde.decorationTheme = "kwin4_decoration_qml_plastik";
-      gtk.extraCss = "* { border-radius: 0px; }";
+      # kde.decorationTheme = "kwin4_decoration_qml_plastik";
+      kde.enable = false;
+      # gtk.extraCss = "* { border-radius: 0px; }";
+      gtk.enable = false;
     };
   };
 }

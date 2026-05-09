@@ -4,10 +4,10 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
-    ../modulerinos/nvidia.nix
-    ../modulerinos/fish.nix
-    ../modulerinos/hyprland.nix
+    ./puter/hardware-configuration.nix
+    ./modulerinos/nvidia.nix
+    ./modulerinos/fish.nix
+    ./modulerinos/hyprland.nix
   ];
   # FLAKES
   nix.settings.experimental-features = [
@@ -51,7 +51,7 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.gdm.enable = true;
+  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
@@ -135,7 +135,7 @@
     # proton2
     protonup-ng
     wireguard-tools
-    protonvpn-gui
+    proton-vpn
     croc
   ];
 
