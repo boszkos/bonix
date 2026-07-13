@@ -7,6 +7,7 @@
     ./hardware-configuration.nix
     ./modulerinos/nvidia.nix
     ./modulerinos/fish.nix
+    ./modulerinos/sway.nix
   ];
   # FLAKES
   nix.settings.experimental-features = [
@@ -46,6 +47,11 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  # stuff to make sway work properly, apparently
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "br";
@@ -68,6 +74,7 @@
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  security.polkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -93,7 +100,11 @@
   #PROGRAMAS
   programs = {
     firefox.enable = true;
-    steam.enable = true;
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      gamescopeSession.enable = true;
+    };
     fish.enable = true;
     #gamemode baldurs gate?
     gamemode.enable = true;

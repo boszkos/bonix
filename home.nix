@@ -15,7 +15,8 @@
     ./homerinos/kitty.nix
     ./homerinos/fish.nix
     ./homerinos/helix.nix
-    # ./homerinos/stylix.nix
+    ./homerinos/stylix.nix
+    ./homerinos/sway.nix
   ];
 
   home.packages = with pkgs; [
@@ -36,9 +37,7 @@
     rar
     gpu-screen-recorder-gtk
     prismlauncher #minecraft
-    grimblast
     element-desktop
-    krita
     nautilus
   ];
   #enable zen

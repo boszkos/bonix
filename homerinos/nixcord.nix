@@ -1,7 +1,10 @@
 {inputs, ...}: {
   programs.nixcord = {
     enable = true; # enable Nixcord. Also installs discord package
-    discord.enable = true;
+    discord = {
+      enable = true;
+      vencord.enable = true;
+    };
     config = {
       # frameless = true; # set some Vencord options
       plugins = {

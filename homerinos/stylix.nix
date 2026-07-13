@@ -4,7 +4,7 @@ in {
   stylix = rec {
     #theme
     enable = true;
-    base16Scheme = getTheme "ayu-dark";
+    base16Scheme = getTheme "chalk";
     polarity = "dark";
     #fonts
     fonts = {
@@ -20,19 +20,15 @@ in {
       size = 24;
     };
     #icons
-    # icons = {
-    #   enable = true;
-    # package = pkgs.breeze-icons;
-    # dark = "Breeze-Dark";
-    # light = "Breeze-Light";
-    # };
+    icons = {
+      enable = false;
+    };
 
     #
     targets = {
-      # kde.decorationTheme = "kwin4_decoration_qml_plastik";
-      kde.enable = false;
-      # gtk.extraCss = "* { border-radius: 0px; }";
+      kde.enable = true;
       gtk.enable = false;
+      qt.enable = false;
     };
   };
 }
