@@ -15,6 +15,6 @@
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
-    extraPackages = [brightnessctl grim pulseaudio swayidle swaylock wmenu];
+    extraPackages = with pkgs; [brightnessctl grim pulseaudio swayidle swaylock wmenu];
   };
 }

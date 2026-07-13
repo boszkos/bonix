@@ -47,6 +47,14 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  # collect garbage e store
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "15d";
+    options = "--delete-older-than 15d";
+  };
+
   # stuff to make sway work properly, apparently
   xdg.portal = {
     enable = true;
