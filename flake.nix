@@ -25,6 +25,11 @@
         home-manager.follows = "home-manager";
       };
     };
+    #shadowplay (gpu-screenrecorder)
+    gsr-ui-nix = {
+      url = "github:rPlakama/gsr-ui-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

@@ -3,26 +3,26 @@
   config,
   lib,
   ...
-}: {
-  #iniciar modulo!!
-  home.sessionVariables = {
-    SWAY_UNSUPPORTED_GPU = "1";
-  };
-
+}: let
+  wallpaper = ../wallpapers/imagem1.jpg;
+in {
+  #iniciar modulo!!!
   #habilitar sway
   wayland.windowManager.sway = {
     enable = true;
-    wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
+    wrapperFeatures.gtk = true;
 
     # configuração (~/.config/sway)
     config = rec {
       modifier = "Mod4";
 
-      #input de teclado
+      #input de teclado e mouse!
       input = {
         "*" = {
           xkb_layout = "br";
           xkb_variant = "abnt2";
+          accel_profile = "adaptive";
+          pointer_accel = "0.5";
         };
       };
 
@@ -33,29 +33,31 @@
         };
       };
 
+      gaps = {
+        inner = 2;
+        outer = 2;
+      };
       # Use kitty as default terminal
       terminal = "kitty";
 
       #startup applications
       startup = [
-        {command = "discord";}
-        {command = "beta-zen";}
-        {command = "steam";}
+        {command = "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP";} #sugestão ia pra reslver stream
+        {command = "${pkgs.swaybg}/bin/swaybg -i ${wallpaper} -m fill";}
+        {command = "sleep 2 && discord";}
+        {command = "sleep 6 && beta-zen";}
+        {command = "sleep 4 && steam";}
       ];
 
       #barra
-      bars = [
-        {
-          workspaceNumbers = false;
-          workspaceButtons = false;
-        }
-      ];
+      bars = [];
 
       # Configuração Keys
       keybindings = lib.mkOptionDefault {
         "${modifier}+Shift+m" = "reload";
-        "${modifier}+Shift+k" = "kill";
-        "${modifier}+Q" = "exec kitty"; #non declarativo! se trocar o terminal fica como? faz o L
+        "${modifier}+Shift+q" = "kill";
+        "${modifier}+q" = "exec ${terminal}"; #non declarativo! se trocar o terminal fica como? faz o L
+        "${modifier}+p" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy"; #this sounds complicated! não sei porque mas o código do márcio nao funcionou ent acabei pedindo pra ia fazer. não sei se tem um método mais fácil do que abrir uma shell dentro pra fazer isso.
       };
     };
   };

@@ -17,6 +17,7 @@
     ./homerinos/helix.nix
     ./homerinos/stylix.nix
     ./homerinos/sway.nix
+    ./homerinos/waybar.nix
   ];
 
   home.packages = with pkgs; [
@@ -35,10 +36,10 @@
     neo
     ace-of-penguins #solitaire
     rar
-    gpu-screen-recorder-gtk
     prismlauncher #minecraft
     element-desktop
     nautilus
+    kdePackages.kolourpaint
   ];
   #enable zen
   programs.zen-browser.enable = true;

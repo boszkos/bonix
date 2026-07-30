@@ -8,6 +8,7 @@
     ./modulerinos/nvidia.nix
     ./modulerinos/fish.nix
     ./modulerinos/sway.nix
+    ./modulerinos/shadowplay.nix
   ];
   # FLAKES
   nix.settings.experimental-features = [
@@ -122,8 +123,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    # File Explorer
-    nautilus
     # Terminal
     kitty
     # Torrent

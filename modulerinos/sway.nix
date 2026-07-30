@@ -15,6 +15,13 @@
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
-    extraPackages = with pkgs; [brightnessctl grim pulseaudio swayidle swaylock wmenu];
+    extraPackages = with pkgs; [swaybg brightnessctl grim pulseaudio swayidle swaylock wmenu];
+    extraOptions = [
+      "--unsupported-gpu"
+    ];
+    extraSessionCommands = ''
+      export SWAY_UNSUPPORTED_GPU=1
+      export XDG_CURRENT_DESKTOP=sway
+      export XDG_SESSION_TYPE=wayland'';
   };
 }
