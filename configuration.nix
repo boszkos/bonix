@@ -97,6 +97,7 @@
     description = "boszko";
     extraGroups = [
       "networkmanager"
+      "input"
       "wheel"
     ];
     packages = with pkgs; [

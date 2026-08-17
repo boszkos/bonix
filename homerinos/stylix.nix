@@ -15,8 +15,8 @@ in {
       sansSerif = fonts.monospace;
     };
     cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
+      package = pkgs.banana-cursor;
+      name = "Banana";
       size = 24;
     };
     #icons
@@ -29,6 +29,7 @@ in {
       kde.enable = true;
       gtk.enable = false;
       qt.enable = false;
+      zen-browser.enable = false;
     };
   };
 }

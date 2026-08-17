@@ -7,6 +7,9 @@
   wallpaper = ../wallpapers/imagem1.jpg;
 in {
   #iniciar modulo!!!
+  imports = [
+    ./wofi.nix
+  ];
   #habilitar sway
   wayland.windowManager.sway = {
     enable = true;
@@ -58,6 +61,7 @@ in {
         "${modifier}+Shift+q" = "kill";
         "${modifier}+q" = "exec ${terminal}"; #non declarativo! se trocar o terminal fica como? faz o L
         "${modifier}+p" = "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.wl-clipboard}/bin/wl-copy"; #this sounds complicated! não sei porque mas o código do márcio nao funcionou ent acabei pedindo pra ia fazer. não sei se tem um método mais fácil do que abrir uma shell dentro pra fazer isso.
+        "${modifier}+d" = "exec wofi --show drun";
       };
     };
   };

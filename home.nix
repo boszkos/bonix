@@ -38,8 +38,8 @@
     rar
     prismlauncher #minecraft
     element-desktop
-    nautilus
     kdePackages.kolourpaint
+    wl-clicker
   ];
   #enable zen
   programs.zen-browser.enable = true;
