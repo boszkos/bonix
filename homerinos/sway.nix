@@ -77,8 +77,8 @@ in {
       };
 
       gaps = {
-        inner = 2;
-        outer = 2;
+        inner = 4;
+        outer = 4;
       };
       # Use kitty as default terminal
       terminal = "kitty";
@@ -90,6 +90,7 @@ in {
         {command = "sleep 2 && discord";}
         {command = "sleep 6 && beta-zen";}
         {command = "sleep 4 && steam";}
+        {command = "waybar";}
       ];
 
       #barra

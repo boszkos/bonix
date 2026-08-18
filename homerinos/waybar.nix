@@ -11,7 +11,7 @@
       main = {
         layer = "top";
         position = "top";
-        height = 30;
+        height = 35;
         fixed-center = true;
         spacing = 10;
         modules-left = [

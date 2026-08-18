@@ -42,10 +42,14 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
+  services.xserver.autorun = false;
 
   # Enable the KDE Plasma Desktop Environment.
   services.desktopManager.plasma6.enable = true;
+
+  #i hate login!
+  systemd.defaultUnit = "multi-user.target";
 
   # collect garbage e store
   nix.settings.auto-optimise-store = true;
