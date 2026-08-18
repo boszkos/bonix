@@ -8,11 +8,9 @@
     enable = true;
     settings = {
       width = 500;
-      height = 300;
+      height = 600;
       location = "center";
       show = "drun";
-      prompt = "Run:";
-      filter_rate = 100;
       allow_images = true;
     };
   };

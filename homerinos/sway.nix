@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  wallpaper = ../wallpapers/imagem1.jpg;
+  wallpaper = ../wallpapers/imagem2.jpg;
 in {
   #iniciar modulo!!!
   imports = [
@@ -18,6 +18,46 @@ in {
     # configuração (~/.config/sway)
     config = rec {
       modifier = "Mod4";
+
+      # border edge color sla o noem (i couldnt figure out how to get this to work myself by looking at config for sway so i asked ai awa ;w; sorryyyy)
+      colors = lib.mkForce {
+        focused = {
+          border = "#D28E3D";
+          background = "#D28E3D";
+          text = "#FFFFFF";
+          indicator = "#D24B4B";
+          childBorder = "#D28E3D";
+        };
+        focusedInactive = {
+          border = "#504945";
+          background = "#504945";
+          text = "#888888";
+          indicator = "#504945";
+          childBorder = "#504945";
+        };
+        unfocused = {
+          border = "#504945";
+          background = "#504945";
+          text = "#888888";
+          indicator = "#504945";
+          childBorder = "#504945";
+        };
+        urgent = {
+          border = "#D24B4B";
+          background = "#151515";
+          text = "#FFFFFF";
+          indicator = "#D28E3D";
+          childBorder = "#D24B4B";
+        };
+        placeholder = {
+          border = "#504945";
+          background = "#504945";
+          text = "#888888";
+          indicator = "#504945";
+          childBorder = "#504945";
+        };
+        background = "#151515";
+      };
 
       #input de teclado e mouse!
       input = {

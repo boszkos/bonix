@@ -30,6 +30,7 @@ in {
       gtk.enable = false;
       qt.enable = false;
       zen-browser.enable = false;
+      sway.enable = true;
     };
   };
 }
