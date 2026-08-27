@@ -86,11 +86,8 @@ in {
       #startup applications
       startup = [
         {command = "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP";} #sugestão ia pra reslver stream
-        {command = "${pkgs.swaybg}/bin/swaybg -i ${wallpaper} -m fill";}
-        {command = "sleep 2 && discord";}
-        {command = "sleep 6 && beta-zen";}
-        {command = "sleep 4 && steam";}
         {command = "waybar";}
+        {command = "${pkgs.swaybg}/bin/swaybg -i ${wallpaper} -m fill";}
       ];
 
       #barra
