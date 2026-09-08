@@ -45,11 +45,11 @@
   services.xserver.enable = false;
   services.xserver.autorun = false;
 
+  # FUCK GUI
+
+  services.displayManager.sddm.enable = false;
   # Enable the KDE Plasma Desktop Environment.
   services.desktopManager.plasma6.enable = true;
-
-  #i hate login!
-  systemd.defaultUnit = "multi-user.target";
 
   # collect garbage e store
   nix.settings.auto-optimise-store = true;
