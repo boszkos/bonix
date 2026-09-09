@@ -4,8 +4,11 @@ in {
   stylix = rec {
     #theme
     enable = true;
-    base16Scheme = getTheme "chalk";
+    base16Scheme = getTheme "darcula";
     polarity = "dark";
+
+    # pape
+    image = ../wallpapers/imagem3.png;
     #fonts
     fonts = {
       monospace = {
