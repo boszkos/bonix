@@ -16,6 +16,7 @@
         spacing = 10;
         modules-left = [
           "sway/workspaces"
+          "hyprland/workspaces"
         ];
         modules-center = [
           "clock"

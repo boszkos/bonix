@@ -17,6 +17,7 @@
     ./homerinos/helix.nix
     ./homerinos/stylix.nix
     ./homerinos/sway.nix
+    ./homerinos/hyprland.nix
     ./homerinos/waybar.nix
   ];
 
@@ -40,6 +41,7 @@
     element-desktop
     kdePackages.kolourpaint
     wl-clicker
+    r2modman #gerenciador de mods
   ];
   #enable zen
   programs.zen-browser.enable = true;
