@@ -8,7 +8,7 @@ in {
     polarity = "dark";
 
     # pape
-    image = ../wallpapers/imagem3.png;
+    image = ../wallpapers/imagem2.jpg;
     #fonts
     fonts = {
       monospace = {

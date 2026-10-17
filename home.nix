@@ -42,6 +42,7 @@
     kdePackages.kolourpaint
     wl-clicker
     r2modman #gerenciador de mods
+    protontricks
   ];
   #enable zen
   programs.zen-browser.enable = true;

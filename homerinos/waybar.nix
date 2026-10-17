@@ -15,6 +15,7 @@
         fixed-center = true;
         spacing = 10;
         modules-left = [
+          "custom/menu"
           "sway/workspaces"
           "hyprland/workspaces"
         ];
@@ -26,6 +27,12 @@
           "network"
           "pulseaudio"
         ];
+
+        "custom/menu" = {
+          format = "󱄅";
+          on-click = "wofi";
+          tooltip = false;
+        };
 
         "sway/workspaces" = {
           disable-scroll = true;
@@ -67,6 +74,10 @@
         border-radius: 0;
         font-family: CaskaydiaCove Nerd Font;
         color: white;
+      }
+      #custom-menu {
+      font-size: 30px;
+      padding-left: 10px;
       }
     '';
   };

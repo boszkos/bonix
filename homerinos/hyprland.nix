@@ -1,41 +1,47 @@
-{..., lib, config}:{
+{
+  lib,
+  config,
+  ...
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "lua";
 
-    settings = {
-      
-      inputs = {
-        kb_layout = "br";
-      };
+    extraConfig = ''
+      local terminal    = "kitty"
+      local fileManager = "dolphin"
+      local menu        = "wofi"
+      local mainMod = "SUPER"
 
-      monitor = [
-        "eDP-1, 1920x1080@165, 0x0, 1"
-      ];
+      hl.monitor({
+        output = "",
+        mode = " preferred ",
+        position = " auto ",
+        scale = 1.07,
+      })
 
-      
-      general = {
-        gaps_in = 3;
-        gaps_out = 3;
-        border_size = 0;
-        layout = "dwindle";
-      };
+      hl.input({
+        kb_layout = " br ",
+        kb_variant = " abnt2 ",
+      })
 
-      env = [
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
-      ];
-      
-      decoration = {
-        rounding = 0;
-        blur.enabled = "true";
-      };
+      hl.on("hyprland.start", function ()
+        hl.exec_cmd(hyprpaper)
+        hl.exec_cmd(waybar)
+        hl.exec_cmd()
+      end)
 
-      animations.enabled = "yes";
-     
-      exec-once = [
-        "waybar"
-        "bash -c 'dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && systemctl --user restart xdg-desktop-portal.service'"
-        "systemctl --user start hyprpolkitagent"
-      ];
-    };
+      hl.config ({
+        general = {
+          gaps_out = 10,
+          gaps_in = 5,
+          border_size = 1,
+          col = {
+            active_border = "rgba(aaaaaaaa)",
+            inactive_border = "rgba(676767aa)",
+          },
+        },
+      })
+    '';
   };
 }
