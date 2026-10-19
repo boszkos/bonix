@@ -21,6 +21,12 @@
     ./homerinos/wofi.nix
   ];
 
+  #allow unfree things bcz global package scukis!!
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = pkg: true;
+  };
+
   home.packages = with pkgs; [
     yazi #idk margic
     calibre
