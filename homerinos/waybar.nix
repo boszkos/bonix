@@ -78,6 +78,7 @@
       #custom-menu {
       font-size: 30px;
       padding-left: 10px;
+      padding-right: 12px;
       }
     '';
   };

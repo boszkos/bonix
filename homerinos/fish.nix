@@ -11,6 +11,7 @@
       }
     ];
     interactiveShellInit = "
+      fastfetch
       set -g tide_character_icon '$'
       set -g tide_character_vi_icon_default '$'
       ";

@@ -16,9 +16,9 @@
     ./homerinos/fish.nix
     ./homerinos/helix.nix
     ./homerinos/stylix.nix
-    ./homerinos/sway.nix
     ./homerinos/hyprland.nix
     ./homerinos/waybar.nix
+    ./homerinos/wofi.nix
   ];
 
   home.packages = with pkgs; [
@@ -43,6 +43,11 @@
     wl-clicker
     r2modman #gerenciador de mods
     protontricks
+
+    #screenshjot on hypr
+    wl-clipboard
+    grim
+    slurp
   ];
   #enable zen
   programs.zen-browser.enable = true;

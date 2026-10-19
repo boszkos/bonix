@@ -46,8 +46,11 @@
   services.xserver.autorun = false;
 
   services.displayManager.sddm.enable = false;
+
   # Enable the KDE Plasma Desktop Environment.
   services.desktopManager.plasma6.enable = true;
+
+  # enable hyprland
   programs.hyprland.enable = true;
 
   # collect garbage e store
@@ -63,7 +66,11 @@
     enable = true;
     wlr.enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    config.common = {
+      default = ["hyprland" "gtk"];
+    };
   };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "br";
@@ -136,8 +143,6 @@
     wireguard-tools
     proton-vpn
     croc
-    #hyprland
-    hyprpolkitagent
   ];
 
   # PRO PROTONVPN FUNCIONAR
