@@ -19,6 +19,7 @@
     ./homerinos/hyprland.nix
     ./homerinos/waybar.nix
     ./homerinos/wofi.nix
+    ./homerinos/fastfetch.nix
   ];
 
   #allow unfree things bcz global package scukis!!
@@ -30,7 +31,6 @@
   home.packages = with pkgs; [
     yazi #idk margic
     calibre
-    fastfetch
     vlc
     obsidian
     btop

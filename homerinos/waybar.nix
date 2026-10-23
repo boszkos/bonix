@@ -6,7 +6,7 @@
 }: {
   programs.waybar = {
     enable = true;
-    systemd.enable = true;
+    systemd.enable = false;
     settings = {
       main = {
         layer = "top";
@@ -76,10 +76,13 @@
         color: white;
       }
       #custom-menu {
-      font-size: 30px;
-      padding-left: 10px;
+      font-size: 32px;
+      padding-left: 12px;
       padding-right: 12px;
       }
+      #pulseaudio {
+      # padding-right 12px;
+      # }
     '';
   };
 }

@@ -7,7 +7,6 @@
     ./hardware-configuration.nix
     ./modulerinos/nvidia.nix
     ./modulerinos/fish.nix
-    ./modulerinos/sway.nix
     ./modulerinos/shadowplay.nix
   ];
   # FLAKES
@@ -61,7 +60,7 @@
     options = "--delete-older-than 15d";
   };
 
-  # stuff to make sway work properly, apparently
+  # stuff to make sway/hyprland work properly, apparently
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -70,6 +69,8 @@
       default = ["hyprland" "gtk"];
     };
   };
+  #no clue what this does
+  services.gnome.gnome-keyring.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -100,6 +101,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   # user
   users.users.boszko = {
@@ -134,6 +136,10 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    # clipboard for wayland
+    wl-clipboard
+    # notification daemon
+    mako
     # Terminal
     kitty
     # Torrent
@@ -142,6 +148,7 @@
     protonup-ng
     wireguard-tools
     proton-vpn
+    # P2P file transfer i think
     croc
   ];
 

@@ -115,7 +115,9 @@
 
       hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
       hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close())
-      hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
+      hl.bind(mainMod .. " + SHIFT + M", function()
+        hl.dispatch(hl.dsp.exit())
+      end)
       hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
       hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
       hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
