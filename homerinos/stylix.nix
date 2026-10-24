@@ -26,7 +26,7 @@ in {
     polarity = "dark";
 
     # pape
-    image = ../wallpapers/imagem2.jpg;
+    image = ../wallpapers/imagem4-luna.jpg;
     #fonts
     fonts = {
       monospace = {

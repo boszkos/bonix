@@ -81,8 +81,8 @@
       padding-right: 12px;
       }
       #pulseaudio {
-      # padding-right 12px;
-      # }
+       padding-right: 12px;
+       }
     '';
   };
 }
