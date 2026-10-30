@@ -7,14 +7,15 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      libvdpau-va-gl
+      nvidia-vaapi-driver
     ];
   };
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
+    modesetting.enable = true;
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = false;
+    open = true; # recomendado pela NVIDIA pra Turing+ (3070 Ti)
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
@@ -22,6 +23,6 @@
     GBM_BACKEND = "nvidia-drm"; # Required for GPU acceleration
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    VDPAU_DRIVER = "va_gl";
+    NVD_BACKEND = "direct";
   };
 }
