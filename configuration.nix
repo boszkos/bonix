@@ -152,6 +152,16 @@
     croc
   ];
 
+  ########minecraft hamachi floss???? n entendi
+  services.zerotierone = {
+    enable = true;
+    joinNetworks = [
+      "1c33c1ced078f7d7"
+    ];
+  };
+  ###############################
+  ###############################
+
   # PRO PROTONVPN FUNCIONAR
   networking.firewall.checkReversePath = "loose";
 
