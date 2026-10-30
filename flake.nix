@@ -11,7 +11,10 @@
     # discord/nixcord
     nixcord.url = "github:kaylorben/nixcord";
     #hyprland
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     #stylix
     stylix = {
       url = "github:nix-community/stylix";

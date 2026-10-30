@@ -17,8 +17,8 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # Kernel zen (focado em desktop/jogos)
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   networking.hostName = "flakey-burrow"; # hostname.
   # Enable networking
   networking.networkmanager.enable = true;
@@ -63,7 +63,6 @@
   # stuff to make sway/hyprland work properly, apparently
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
     config.common = {
       default = ["hyprland" "gtk"];
@@ -111,6 +110,7 @@
       "networkmanager"
       "input"
       "wheel"
+      "gamemode"
     ];
     packages = with pkgs; [
       kdePackages.kate

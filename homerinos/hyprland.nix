@@ -5,6 +5,9 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
+    # usar o hyprland/portal do modulo NixOS (flake), não um segundo do nixpkgs
+    package = null;
+    portalPackage = null;
     configType = "lua";
 
     extraConfig = ''
@@ -45,7 +48,7 @@
           ["col.inactive_border"] = "rgba(676767aa)",
 
           resize_on_border = false,
-          allow_tearing = false,
+          allow_tearing = true,
           layout = "dwindle",
         },
 
@@ -79,6 +82,9 @@
         misc = {
           force_default_wallpaper = -1,
           disable_hyprland_logo   = false,
+        },
+        render = {
+          direct_scanout = 2, -- só pra jogos fullscreen
         },
       })
 
