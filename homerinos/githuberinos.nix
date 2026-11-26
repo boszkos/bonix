@@ -1,14 +1,12 @@
-{pkgs, ...}: {
+{
   programs.git = {
     enable = true;
     settings = {
       user = {
-        Name = "boszko";
-        Email = "brianboszko04@gmail.com";
+        name = "boszko";
+        email = "brianboszko04@gmail.com";
       };
     };
   };
-  home.packages = with pkgs; [
-    gh
-  ];
+  programs.gh.enable = true;
 }

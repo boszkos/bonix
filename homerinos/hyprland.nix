@@ -1,8 +1,7 @@
 {
-  lib,
-  config,
-  ...
-}: {
+  services.hyprpolkitagent.enable = true;
+  services.mako.enable = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
     # usar o hyprland/portal do modulo NixOS (flake), não um segundo do nixpkgs
@@ -27,16 +26,13 @@
 
       -- AUTOSTART --
       hl.on("hyprland.start", function ()
-        hl.exec_cmd("hyprpaper")
         hl.exec_cmd("waybar")
-        hl.exec_cmd("systemctl --user start hyprpolkitagent")
       end)
 
       -- CONFIG GERAL --
       hl.config({
         input = {
           kb_layout = "br",
-          kb_variant = "abnt2",
         },
         general = {
           gaps_out = 10,
@@ -169,8 +165,6 @@
       hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
       hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),      { locked = true, repeating = true })
       hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true })
-      hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
-      hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
 
       hl.bind("XF86AudioNext",  hl.dsp.exec_cmd("playerctl next"),        { locked = true })
       hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })

@@ -1,7 +1,4 @@
 {pkgs, ...}: {
-  home.packages = with pkgs; [
-    fishPlugins.tide
-  ];
   programs.fish = {
     enable = true;
     plugins = [
@@ -10,18 +7,16 @@
         src = pkgs.fishPlugins.tide.src;
       }
     ];
-    interactiveShellInit = "
-      fastfetch --logo NixOS2
+    interactiveShellInit = ''
+      fastfetch
       set -g tide_character_icon '$'
       set -g tide_character_vi_icon_default '$'
-      ";
+    '';
 
     shellAliases = {
       neofetch = "fastfetch";
-      update = "sudo nix flake update /home/boszko/bonix/flake.nix && sudo nixos-rebuild switch --flake /home/boszko/bonix#boszko";
+      update = "nix flake update --flake /home/boszko/bonix && sudo nixos-rebuild switch --flake /home/boszko/bonix#boszko";
       hyprland = "start-hyprland";
-      plasma = "startplasma-wayland";
-      kde = "startplasma-wayland";
       "NOW!!!" = "now";
     };
   };
