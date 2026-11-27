@@ -1,10 +1,4 @@
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.username = "boszko";
   home.homeDirectory = "/home/boszko";
   home.stateVersion = "25.11";
@@ -21,12 +15,6 @@
     ./homerinos/wofi.nix
     ./homerinos/fastfetch.nix
   ];
-
-  #allow unfree things bcz global package scukis!!
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = pkg: true;
-  };
 
   home.packages = with pkgs; [
     yazi #idk margic
@@ -46,6 +34,7 @@
     prismlauncher #minecraft
     element-desktop
     kdePackages.kolourpaint
+    kdePackages.dolphin
     wl-clicker
     r2modman #gerenciador de mods
     protontricks
@@ -54,7 +43,12 @@
     wl-clipboard
     grim
     slurp
+
+    #volume e media keys
+    pavucontrol
+    playerctl
   ];
+  nixpkgs.config.allowUnfree = true;
   #enable zen
   programs.zen-browser.enable = true;
 }

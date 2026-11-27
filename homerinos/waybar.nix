@@ -1,9 +1,4 @@
 {
-  pkgs,
-  lib,
-  config,
-  ...
-}: {
   programs.waybar = {
     enable = true;
     systemd.enable = false;
@@ -16,7 +11,6 @@
         spacing = 10;
         modules-left = [
           "custom/menu"
-          "sway/workspaces"
           "hyprland/workspaces"
         ];
         modules-center = [
@@ -32,11 +26,6 @@
           format = "󱄅";
           on-click = "wofi";
           tooltip = false;
-        };
-
-        "sway/workspaces" = {
-          disable-scroll = true;
-          format = "{name}";
         };
 
         "clock" = {

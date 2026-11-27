@@ -47,12 +47,7 @@ in {
 
     #
     targets = {
-      rofi.enable = false;
-      kde.enable = true;
-      gtk.enable = false;
-      qt.enable = false;
       zen-browser.enable = false;
-      sway.enable = true;
     };
   };
 }

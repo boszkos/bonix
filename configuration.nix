@@ -1,11 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./modulerinos/nvidia.nix
+    ./modulerinos/hyprland.nix
     ./modulerinos/fish.nix
     ./modulerinos/shadowplay.nix
   ];
@@ -39,46 +36,32 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = false;
-  services.xserver.autorun = false;
-
-  services.displayManager.sddm.enable = false;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.desktopManager.plasma6.enable = true;
-
-  # enable hyprland
-  programs.hyprland.enable = true;
-
   # collect garbage e store
   nix.settings.auto-optimise-store = true;
   nix.gc = {
     automatic = true;
-    dates = "15d";
+    dates = "weekly";
     options = "--delete-older-than 15d";
   };
 
-  # stuff to make sway/hyprland work properly, apparently
-  xdg.portal = {
-    enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
-    config.common = {
-      default = ["hyprland" "gtk"];
-    };
-  };
-  #no clue what this does
+  # chaveiro de senhas
   services.gnome.gnome-keyring.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "br";
-    variant = "";
-  };
 
   # Enable SWAP
   zramSwap.enable = true;
+
+  # earlyoom: só mata algo quando o pc está quase travando
+  services.earlyoom = {
+    enable = true;
+    freeMemThreshold = 2;
+    freeSwapThreshold = 2;
+    enableNotifications = true;
+    extraArgs = ["--avoid" "^(Hyprland|waybar)$"];
+  };
+
+  # não travar o desligamento esperando processo (steam, discord...)
+  systemd.settings.Manager.DefaultTimeoutStopSec = "10s";
+  systemd.user.settings.Manager.DefaultTimeoutStopSec = "10s";
 
   # Enable Virtual Machines
   virtualisation.libvirtd.enable = true;
@@ -101,6 +84,9 @@
     pulse.enable = true;
   };
 
+  # Flatpak
+  services.flatpak.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   # user
   users.users.boszko = {
@@ -111,10 +97,10 @@
       "input"
       "wheel"
       "gamemode"
+      "libvirtd"
     ];
     packages = with pkgs; [
       kdePackages.kate
-      flatpak
       gnome-software
     ];
   };
@@ -127,7 +113,6 @@
       remotePlay.openFirewall = true;
       gamescopeSession.enable = true;
     };
-    fish.enable = true;
     #gamemode baldurs gate?
     gamemode.enable = true;
   };
@@ -136,12 +121,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    # clipboard for wayland
-    wl-clipboard
-    # notification daemon
-    mako
-    # Terminal
-    kitty
     # Torrent
     deluge
     # proton2

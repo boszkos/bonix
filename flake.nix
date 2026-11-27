@@ -10,11 +10,8 @@
     };
     # discord/nixcord
     nixcord.url = "github:kaylorben/nixcord";
-    #hyprland
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #hyprland (sem follows, pra usar o cachix)
+    hyprland.url = "github:hyprwm/Hyprland";
     #stylix
     stylix = {
       url = "github:nix-community/stylix";
@@ -28,41 +25,33 @@
         home-manager.follows = "home-manager";
       };
     };
-    #shadowplay (gpu-screenrecorder)
-    gsr-ui-nix = {
-      url = "github:rPlakama/gsr-ui-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
-    zen-browser,
-    hyprland,
-    stylix,
     ...
   } @ inputs: {
     nixosConfigurations = {
       # ---- COMPUTADOR ---- #
       boszko = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = {inherit inputs;};
         modules = [
           ./configuration.nix
-          hyprland.nixosModules.default
           home-manager.nixosModules.home-manager
           {
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.useGlobalPkgs = false;
-            home-manager.useUserPackages = true;
-            home-manager.users.boszko = import ./home.nix;
-            home-manager.sharedModules = [
-              inputs.nixcord.homeModules.nixcord
-              stylix.homeModules.stylix
-              zen-browser.homeModules.beta
-            ];
+            home-manager = {
+              extraSpecialArgs = {inherit inputs;};
+              useGlobalPkgs = false; # stylix precisa de overlays próprios
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              users.boszko = import ./home.nix;
+              sharedModules = [
+                inputs.nixcord.homeModules.nixcord
+                inputs.stylix.homeModules.stylix
+                inputs.zen-browser.homeModules.beta
+              ];
+            };
           }
         ];
       };

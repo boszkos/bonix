@@ -1,15 +1,5 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      nvidia-vaapi-driver
-    ];
-  };
+{config, ...}: {
+  hardware.graphics.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
@@ -24,5 +14,29 @@
     LIBVA_DRIVER_NAME = "nvidia";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     NVD_BACKEND = "direct";
+  };
+
+  # não deixar o hyprland segurar VRAM que devia ir pros jogos
+  environment.etc."nvidia/nvidia-application-profiles-rc.d/50-limit-free-buffer-pool-in-wayland-compositors.json".text = builtins.toJSON {
+    rules = [
+      {
+        pattern = {
+          feature = "procname";
+          matches = "Hyprland";
+        };
+        profile = "Limit Free Buffer Pool On Wayland Compositors";
+      }
+    ];
+    profiles = [
+      {
+        name = "Limit Free Buffer Pool On Wayland Compositors";
+        settings = [
+          {
+            key = "GLVidHeapReuseRatio";
+            value = 0;
+          }
+        ];
+      }
+    ];
   };
 }

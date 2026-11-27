@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{
   programs.nixcord = {
     enable = true; # enable Nixcord. Also installs discord package
     vesktop.enable = true;
@@ -11,7 +11,7 @@
       plugins = {
         fakeNitro.enable = true;
         volumeBooster.enable = true;
-        youtubeAdblock.enable = true;
+        betterYouTubeEmbeds.enable = true; # antigo youtubeAdblock
         clearUrls.enable = true;
       };
     };
